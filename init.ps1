@@ -9,3 +9,4 @@ dotnet add .\src\App.fsproj package Fable.Browser.Dom
 # Saved workspace.
 # Setup formatting.
 npm init -y
+npm i -D vite
