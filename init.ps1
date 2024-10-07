@@ -4,3 +4,4 @@ dotnet new nugetconfig
 dotnet new tool-manifest
 dotnet tool install fable
 dotnet tool install fantomas
+dotnet add .\src\App.fsproj package Fable.Core
