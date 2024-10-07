@@ -12,3 +12,4 @@ npm init -y
 npm i -D vite
 New-Item -Name vite.config.ts -ItemType File
 # edit vite.config.ts
+# Add `base: '<REPO>',` to vite.config.ts.
