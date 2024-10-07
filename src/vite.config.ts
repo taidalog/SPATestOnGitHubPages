@@ -4,7 +4,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
     base: '/SPATestOnGitHubPages/',
     build: {
-        outDir: '../docs'
+        outDir: '../docs',
+        emptyOutDir: true
     },
     clearScreen: false,
     server: {
