@@ -16,3 +16,4 @@ New-Item -Name vite.config.ts -ItemType File
 New-Item -Path .\src\ -Name index.html -ItemType File
 New-Item -Path .\src\ -Name style.css -ItemType File
 # `dotnet fable` after cd .\src\
+# Edit index.html
