@@ -1,0 +1,1 @@
+dotnet new console --language "F#" --name "App" --framework "net8.0" --output src
