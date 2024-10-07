@@ -10,3 +10,4 @@ dotnet add .\src\App.fsproj package Fable.Browser.Dom
 # Setup formatting.
 npm init -y
 npm i -D vite
+New-Item -Name vite.config.ts -ItemType File
