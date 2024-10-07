@@ -7,5 +7,5 @@ module A =
 
     let g _ =
         let div = document.createElement "div"
-        div.innerText <- "Happy Hapy F#!"
+        div.innerText <- "Happy coding with F# + Fable + Vite!"
         document.body.appendChild div |> ignore

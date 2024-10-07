@@ -6,7 +6,7 @@ export function f(_arg) {
 
 export function g(_arg) {
     const div = document.createElement("div");
-    div.innerText = "Happy Hapy F#!";
+    div.innerText = "Happy coding with F# + Fable + Vite!";
     document.body.appendChild(div);
 }
 
