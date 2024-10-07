@@ -4,3 +4,9 @@ export function f(_arg) {
     toConsole(printf("Hello World From F#!"));
 }
 
+export function g(_arg) {
+    const div = document.createElement("div");
+    div.innerText = "Happy Hapy F#!";
+    document.body.appendChild(div);
+}
+
