@@ -15,3 +15,4 @@ New-Item -Name vite.config.ts -ItemType File
 # Add `base: '<REPO>',` to vite.config.ts.
 New-Item -Name index.html -ItemType File
 New-Item -Name style.css -ItemType File
+# `dotnet fable` after cd .\src\
