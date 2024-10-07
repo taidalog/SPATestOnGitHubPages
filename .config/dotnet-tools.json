@@ -1,5 +1,12 @@
 {
   "version": 1,
   "isRoot": true,
-  "tools": {}
+  "tools": {
+    "fable": {
+      "version": "4.22.0",
+      "commands": [
+        "fable"
+      ]
+    }
+  }
 }
