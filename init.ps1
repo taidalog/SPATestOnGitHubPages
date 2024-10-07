@@ -6,3 +6,4 @@ dotnet tool install fable
 dotnet tool install fantomas
 dotnet add .\src\App.fsproj package Fable.Core
 dotnet add .\src\App.fsproj package Fable.Browser.Dom
+# Saved workspace.
