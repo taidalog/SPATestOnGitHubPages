@@ -8,3 +8,4 @@ dotnet add .\src\App.fsproj package Fable.Core
 dotnet add .\src\App.fsproj package Fable.Browser.Dom
 # Saved workspace.
 # Setup formatting.
+npm init -y
