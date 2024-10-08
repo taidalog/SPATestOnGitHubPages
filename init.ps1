@@ -10,11 +10,11 @@ dotnet add .\src\App.fsproj package Fable.Browser.Dom
 # Setup formatting.
 npm init -y
 npm i -D vite
-New-Item -Path .\src\ -Name vite.config.ts -ItemType File
+New-Item -Name vite.config.ts -ItemType File
 # edit vite.config.ts
 # Add `base: '<REPO>',` to vite.config.ts.
-New-Item -Path .\src\ -Name index.html -ItemType File
-New-Item -Path .\src\ -Name style.css -ItemType File
+New-Item -Name index.html -ItemType File
+New-Item -Name style.css -ItemType File
 # `dotnet fable` after cd .\src\
 # Edit index.html
-dotnet fable --run npx vite build # at .\src\
+dotnet fable .\src\App.fsproj --run npx vite build # at root
