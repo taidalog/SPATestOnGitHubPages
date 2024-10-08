@@ -18,3 +18,4 @@ New-Item -Name style.css -ItemType File
 # `dotnet fable` after cd .\src\
 # Edit index.html
 dotnet fable .\src\App.fsproj --run npx vite build # at root
+dotnet new xunit --language "F#" --framework "net8.0" --output tests
