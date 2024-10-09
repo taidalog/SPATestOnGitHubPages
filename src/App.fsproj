@@ -7,6 +7,10 @@
 
   <ItemGroup>
     <Compile Include="A.fs" />
+    <Compile Include="Home.fs" />
+    <Compile Include="About.fs" />
+    <Compile Include="Terms.fs" />
+    <Compile Include="NotFound.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
