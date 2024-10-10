@@ -4,6 +4,7 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Browser.Dom
 open Browser.Types
+open Browser.Url
 
 module Program =
     let pageinit (pathname: string) : unit =
