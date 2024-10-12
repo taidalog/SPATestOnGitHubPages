@@ -7,13 +7,13 @@ module Url =
     let mergeSource (url: URL) =
         let searchParams = url.searchParams
 
-        match searchParams.get "source" with
+        match searchParams.get "pathname" with
         | None -> url
         | Some v ->
             let searchParams' = url.searchParams
-            searchParams'.delete "source"
+            searchParams'.delete "pathname"
 
             if searchParams'.ToString() = "" then
-                URL.Create(url.origin + url.pathname + v + searchParams'.ToString())
+                URL.Create(url.origin + v)
             else
-                URL.Create(url.origin + url.pathname + v + "?" + searchParams'.ToString())
+                URL.Create(url.origin + v + "?" + searchParams'.ToString())

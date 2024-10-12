@@ -21,7 +21,7 @@ module App =
             fun (e: MouseEvent) ->
                 e.preventDefault ()
                 window.history.pushState (null, "", x.href)
-                // window.location.href |> URL.Create |> mergeSource |> printfn "%O"
+                window.location.href |> URL.Create |> mergeSource |> printfn "%O"
                 window.location.href |> URL.Create |> mergeSource |> pageinit
 
                 document.body.getElementsByTagName "a"
@@ -46,8 +46,9 @@ module App =
               "/SPATestOnGitHubPages/about/", "about"
               "/SPATestOnGitHubPages/terms/", "terms"
               "/SPATestOnGitHubPages/x/y/z/", "x/y/z"
-              "/SPATestOnGitHubPages/?source=about/", "?source=about/"
-              "/SPATestOnGitHubPages/?source=about/&v=0.1.0", "?source=about/&v=0.1.0" ]
+              "/SPATestOnGitHubPages/?pathname=/SPATestOnGitHubPages/about/", "?pathname=/SPATestOnGitHubPages/about/"
+              "/SPATestOnGitHubPages/?pathname=/SPATestOnGitHubPages/about/&v=0.1.0",
+              "?pathname=/SPATestOnGitHubPages/about/&v=0.1.0" ]
             |> List.map (fun (x, y) ->
                 let a = document.createElement "a" :?> HTMLAnchorElement
                 a.href <- x
@@ -60,7 +61,10 @@ module App =
 
             document.body.getElementsByTagName "a"
             |> fun x -> JS.Constructors.Array?from(x)
-            |> Array.iter overwriteAnchor)
+            |> Array.iter overwriteAnchor
+
+            window.location.href |> URL.Create |> mergeSource |> printfn "%O"
+            window.location.href |> URL.Create |> mergeSource |> pageinit)
 
     )
 
@@ -68,6 +72,6 @@ module App =
         "popstate",
         (fun _ ->
             // printfn "%s" window.location.href
-            // window.location.href |> URL.Create |> mergeSource |> printfn "%O"
+            window.location.href |> URL.Create |> mergeSource |> printfn "%O"
             window.location.href |> URL.Create |> mergeSource |> pageinit)
     )
