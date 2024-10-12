@@ -5,10 +5,11 @@ open Fable.Core.JsInterop
 open Browser.Dom
 open Browser.Types
 open Browser.Url
+open Url
 
-module Program =
-    let pageinit (pathname: string) : unit =
-        match pathname with
+module App =
+    let pageinit (url: URL) : unit =
+        match url.pathname with
         | "/SPATestOnGitHubPages/" -> Home.f ()
         | "/SPATestOnGitHubPages/about/" -> About.f ()
         | "/SPATestOnGitHubPages/terms/" -> Terms.f ()
@@ -19,9 +20,9 @@ module Program =
         x.onclick <-
             fun (e: MouseEvent) ->
                 e.preventDefault ()
-                window.history.pushState (null, "", x.pathname)
-                pageinit window.location.pathname
-                printfn "%s" window.location.pathname
+                window.history.pushState (null, "", x.href)
+                // window.location.href |> URL.Create |> mergeSource |> printfn "%O"
+                window.location.href |> URL.Create |> mergeSource |> pageinit
 
                 document.body.getElementsByTagName "a"
                 |> fun x -> JS.Constructors.Array?from(x)
@@ -44,7 +45,9 @@ module Program =
             [ "/SPATestOnGitHubPages/", "home"
               "/SPATestOnGitHubPages/about/", "about"
               "/SPATestOnGitHubPages/terms/", "terms"
-              "/SPATestOnGitHubPages/x/y/z/", "x/y/z" ]
+              "/SPATestOnGitHubPages/x/y/z/", "x/y/z"
+              "/SPATestOnGitHubPages/?source=about/", "?source=about/"
+              "/SPATestOnGitHubPages/?source=about/&v=0.1.0", "?source=about/&v=0.1.0" ]
             |> List.map (fun (x, y) ->
                 let a = document.createElement "a" :?> HTMLAnchorElement
                 a.href <- x
@@ -64,6 +67,7 @@ module Program =
     window.addEventListener (
         "popstate",
         (fun _ ->
-            pageinit window.location.pathname
-            printfn "%s" window.location.pathname)
+            // printfn "%s" window.location.href
+            // window.location.href |> URL.Create |> mergeSource |> printfn "%O"
+            window.location.href |> URL.Create |> mergeSource |> pageinit)
     )
