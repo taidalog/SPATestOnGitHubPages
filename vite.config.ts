@@ -5,7 +5,13 @@ export default defineConfig({
     base: '/SPATestOnGitHubPages/',
     build: {
         outDir: 'docs',
-        emptyOutDir: true
+        emptyOutDir: true,
+        rollupOptions: {
+            input: {
+                main: 'index.html',
+                404: '404.html'
+            }
+        }
     },
     clearScreen: false,
     server: {

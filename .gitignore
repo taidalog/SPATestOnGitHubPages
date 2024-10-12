@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Fable generated files
+.fable
+*.fs.js
+bundle.js
+temp/**
