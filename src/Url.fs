@@ -4,7 +4,7 @@ open Browser.Types
 open Browser.Url
 
 module Url =
-    let mergeSource (url: URL) =
+    let mergePathname (url: URL) =
         let searchParams = url.searchParams
 
         match searchParams.get "pathname" with
