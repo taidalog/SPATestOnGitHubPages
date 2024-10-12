@@ -21,6 +21,7 @@ module App =
             fun (e: MouseEvent) ->
                 e.preventDefault ()
                 window.history.pushState (null, "", x.href)
+                printfn "overwriteAnchor"
                 window.location.href |> URL.Create |> mergeSource |> printfn "%O"
                 window.location.href |> URL.Create |> mergeSource |> pageinit
 
@@ -63,6 +64,7 @@ module App =
             |> fun x -> JS.Constructors.Array?from(x)
             |> Array.iter overwriteAnchor
 
+            printfn "DOMContentLoaded"
             window.location.href |> URL.Create |> mergeSource |> printfn "%O"
             window.location.href |> URL.Create |> mergeSource |> pageinit)
 
@@ -71,7 +73,7 @@ module App =
     window.addEventListener (
         "popstate",
         (fun _ ->
-            // printfn "%s" window.location.href
+            printfn "popstate"
             window.location.href |> URL.Create |> mergeSource |> printfn "%O"
             window.location.href |> URL.Create |> mergeSource |> pageinit)
     )
