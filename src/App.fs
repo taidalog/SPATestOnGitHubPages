@@ -20,10 +20,9 @@ module App =
         x.onclick <-
             fun (e: MouseEvent) ->
                 e.preventDefault ()
-                window.history.pushState (null, "", x.href)
                 printfn "overwriteAnchor"
-                window.location.href |> URL.Create |> mergeSource |> printfn "%O"
-                window.location.href |> URL.Create |> mergeSource |> pageinit
+                window.history.pushState (null, "", x.href)
+                x.href |> URL.Create |> pageinit
 
                 document.body.getElementsByTagName "a"
                 |> fun x -> JS.Constructors.Array?from(x)
@@ -65,8 +64,10 @@ module App =
             |> Array.iter overwriteAnchor
 
             printfn "DOMContentLoaded"
-            window.location.href |> URL.Create |> mergeSource |> printfn "%O"
-            window.location.href |> URL.Create |> mergeSource |> pageinit)
+            let mergedUrl = window.location.href |> URL.Create |> mergePathname
+            window.history.replaceState (null, "", mergedUrl.href)
+            mergedUrl |> printfn "%O"
+            mergedUrl |> pageinit)
 
     )
 
@@ -74,6 +75,8 @@ module App =
         "popstate",
         (fun _ ->
             printfn "popstate"
-            window.location.href |> URL.Create |> mergeSource |> printfn "%O"
-            window.location.href |> URL.Create |> mergeSource |> pageinit)
+            let mergedUrl = window.location.href |> URL.Create |> mergePathname
+            window.history.replaceState (null, "", mergedUrl.href)
+            mergedUrl |> printfn "%O"
+            mergedUrl |> pageinit)
     )
